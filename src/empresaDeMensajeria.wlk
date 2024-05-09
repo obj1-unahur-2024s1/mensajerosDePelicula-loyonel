@@ -2,6 +2,7 @@ import mensajeros.*
 import destinos.*
 object empresaDeMensajeria {
 	const mensajeros = #{}
+	method mensajeros()= mensajeros
 	method contratarMensajero(mensajero)
 	{
 		mensajeros.add(mensajero)
@@ -16,6 +17,6 @@ object empresaDeMensajeria {
 	}
 	
 	method laMensajeriEsGrande()= mensajeros.size() > 2
-	method elPrimerEmpleadoPuedeEntregarElPaqueteEn(destino)= destino.dejaPasarA(mensajeros.first())
-	method elPesoDelUltimoMensajero()= mensajeros.last().peso()
+	method elPrimerEmpleadoPuedeEntregarElPaqueteEn(destino)= destino.dejaPasarA(mensajeros.asList().first())
+	method elPesoDelUltimoMensajero()= mensajeros.asList().last().peso()
 }

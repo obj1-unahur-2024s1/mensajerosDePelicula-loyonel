@@ -1,0 +1,40 @@
+import mensajeros.*
+import empresaDeMensajeria.*
+import destinos.*
+describe "parte2"
+{
+
+	method initialize()
+	{
+		empresaDeMensajeria.contratarMensajero(neo)
+		empresaDeMensajeria.contratarMensajero(chuckNorris)
+		empresaDeMensajeria.contratarMensajero(roberto)
+	}
+	test "neo, chuck norris y roberto estan contratados"
+	{
+		assert.equals(#{neo, chuckNorris, roberto}, empresaDeMensajeria.mensajeros())
+	}
+	test "despiden a neo"
+	{
+		empresaDeMensajeria.despedirMensajero(neo)
+		assert.equals(#{chuckNorris, roberto}, empresaDeMensajeria.mensajeros())
+	}
+	test "despiden a todos los mensajeros"
+	{
+		empresaDeMensajeria.despedirTodosLosMensajeros()
+		assert.equals(#{}, empresaDeMensajeria.mensajeros())
+	}
+	test "la mensajeria es grande porque tiene 3 mensajeros"
+	{
+		assert.that(empresaDeMensajeria.laMensajeriEsGrande())
+	}
+	test "el primer mensajero  puede entregar el paquete a la matrix"
+	{
+		assert.that(empresaDeMensajeria.elPrimerEmpleadoPuedeEntregarElPaqueteEn(laMatrix))
+	}
+	test "el peso del ultimo mensajero es de 95"
+	{
+
+		assert.equals(95, empresaDeMensajeria.elPesoDelUltimoMensajero())
+	}
+}
